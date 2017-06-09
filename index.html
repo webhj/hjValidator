@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="794520386@qq.com">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>jq自定义表单验证插件</title>
+    <style type="text/css">
+    body,
+    p,
+    div,
+    label {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+    }
+    
+    #form {
+        margin: 20px auto;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    input~span {
+        padding-left: 5px;
+    }
+    
+    .labels {
+        display: inline-block;
+        width: 80px;
+        text-align: right;
+    }
+    
+    .btn-box {
+        padding-left: 84px;
+    }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/hjvalidate.min.js"></script>
+</head>
+
+<body>
+    <form id="form" action="index_submit" method="get" accept-charset="utf-8">
+        <label>
+            <span class="labels">用户名：</span>
+            <input type="" name="user" data-required='required' data-ln='3' data-mn='10' data-required-msg="这是自定义的不能为空" data-regex='^[a-zA-Z0-9]+$' data-regex-msg='不能输入特殊字符'>
+        </label>
+        <label>
+            <span class="labels"> Email：</span>
+            <input type="" name="email" data-required='required' data-email='email' autocomplete="off">
+        </label>
+        <label>
+            <span class="labels">年纪：</span>
+            <input type="" name="age" data-required='required' data-int='int' data-gt='18' data-lt='120'>
+        </label>
+        <div class="btn-box">
+            <button type="submit">确定</button>
+            <button type="reset">重置</button>
+        </div>
+    </form>
+    <script>
+    $('#form').hjValidator({
+        trigger: 'blur keyup',
+        correct: true, //提示正确信息
+        callback: function() {
+            alert('提交中……')
+            return false; // 防止跳转
+        }
+    })
+    </script>
+</body>
+
+</html>
