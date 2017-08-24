@@ -1,7 +1,7 @@
 /**
 /**
  @author wjl(794520386@qq.com)
- @Site:webhj.com  || https://webhj.github.io/jlvalidate
+ @Site:webhj.com  || https://webhj.github.io/hjValidator
  @Created by QQ794520386 on 2017/6/1.
  */
 ;(function() {
